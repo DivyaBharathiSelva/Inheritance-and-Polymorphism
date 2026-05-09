@@ -1,0 +1,33 @@
+class Vehicle:
+    def getinput(self):
+        self.make=input("Enter company name:")
+        self.year=int(input("Enter manufacture year:"))
+        self.color=input("Enter color:")
+    def display_info(self):	
+        print("Company Name:",self.make)
+        print("Manufacture Year:",self.year)
+        print("Color:",self.color)
+class Car(Vehicle):
+    def getinputcar(self):
+        super().getinput()
+        self.model=input("Enter model:")
+        self.capc=input("Enter capacity:")
+    def display_car(self):
+        super().display_info()
+        print("Model:",self.model)
+        print("Capacity:",self.capc)
+class Bike(Vehicle):
+    def getinputbike(self):
+        super().getinput()
+        self.type=input("Enter bike type:")
+        self.mileage=input("Enter mileage:")
+    def display_bike(self):
+        super().display_info()
+        print("Type:",self.type)
+        print("Mileage:",self.mileage)
+c1=Car()
+b1=Bike()
+c1.getinputcar()
+c1.display_car()
+b1.getinputbike()
+b1.display_bike()
