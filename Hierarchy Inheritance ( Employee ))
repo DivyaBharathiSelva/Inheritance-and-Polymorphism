@@ -1,0 +1,36 @@
+class Employee:
+    def getin(self):
+        self.id=input("Enter Employee ID:")
+        self.name=input("Enter Employee Name:")
+        self.sal=int(input("Enter Employee Salary:"))
+        self.per=int(input("Enter Employee bonus Percentage:"))
+    def calculate_bonus(self):
+        self.b=self.sal*(self.per/100)
+        self.bsal=self.b+self.sal
+    def printemp(self):
+        self.calculate_bonus()
+        print("Employee ID:",self.id,"\nEmployee Name:",self.name,"\nEmployee original:",self.sal,"\nEmployee bonus percentage:",self.per,"Employee salary:",self.b,"\nEmployee bonus:",self.bsal)
+class Manager(Employee):
+    def man_details(self):
+        super().getin()
+        self.dep=input("Enter Employee Department:")
+        self.team_size=input("Enter Team size:")
+        self.al=input("Enter manager allowance:")
+    def printman(self):
+        print("\n\t------Employee Details------")
+        super().printemp()
+        print("\n\t------Team Details------")
+        print("Manager Department:",self.dep,"\nTeam size:",self.team_size,"\nAllowance:",self.al)
+class Developer(Employee):
+    def dev_details(self):
+        self.pro=input("Enter project name:")
+        self.exp=input("Enter expenses:")
+    def printDev(self):
+        print("\n\t------Project Details------")
+        print("Project name:",self.pro,"\nTotal expenses:",self.exp)
+M=Manager()
+d=Developer()
+M.man_details()
+d.dev_details()
+M.printman()
+d.printDev()
