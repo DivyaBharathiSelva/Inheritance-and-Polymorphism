@@ -1,0 +1,39 @@
+class Product:
+    def add_tocard(self):
+        self.id=input("Enter id:")
+        self.name=input("Enter type of product:")
+        self.price=input("Enter price:")
+    def display(self):
+        print("ID:",self.id)
+        print("Type of product:",self.name)
+        print("Price:",self.price)
+class Electronics(Product):
+    def getinput_ele(self):
+        super().add_tocard()
+        self.nprod=input("Name of product:")
+        self.brand=input("Brand of product:")
+        self.warranty=input("Warranty of product:")
+    def display(self):
+        super().display()
+        print("Product Name:",self.nprod)
+        print("Brand:",self.brand)
+        print("Warranty:",self.warranty)
+class Clothing(Product):
+    def getinput_cloth(self):
+        super().add_tocard()
+        self.type=input("Enter Type of product:")
+        self.site=input("Enter Site of product:")
+        self.color=input("Enter Color of product:")
+    def display(self):
+        super().display()
+        print("Type:",self.type)
+        print("Site:",self.site)
+        print("Color:",self.color)
+print("----Electonics Shop-----")
+p1=Electronics()
+p1.getinput_ele()
+p1.display()
+print("----Clothing Shop------")
+p2=Clothing()
+p2.getinput_cloth()
+p2.display()
