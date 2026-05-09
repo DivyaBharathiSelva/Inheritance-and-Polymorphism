@@ -1,0 +1,58 @@
+class student:
+    def get_input(self):
+        self.name=input("Enter your name:")
+        self.rollno=input("Enter your roll no:")
+        self.test_m=int(input("Enter your test mark:"))
+    def total_marks(self):
+        return self.test_m + self.rollno
+    def display(self):
+        print("Student Name:",self.name,"\nRoll No:",self.rollno,"\nTest Mark:",self.test_m)
+class literary_student(student):
+    def get_input(self):
+        super().get_input()
+        self.literary_marks=int(input("Enter literary marks:"))
+    def total_marks(self):
+        return self.test_m + self.literary_marks
+    def display(self):
+        super().display()
+        print("Literary Marks:",self.literary_marks,"\nTotal Marks:",self.total_marks())
+class sports_student(student):
+    def get_input(self):
+        super().get_input()
+        self.sports_m=int(input("Enter sports marks:"))
+    def total_marks(self):
+        return self.test_m + self.sports_m
+    def display(self):
+        super().display()
+        print("Sports Marks:",self.sports_m,"\nTotal Marks:",self.total_marks())
+class lit_sprots_student(student):
+    def get_input(self):
+        student.get_input(self)
+        self.literary_marks=int(input("Enter literary marks:"))
+        self.sports_m=int(input("Enter sports marks:"))
+    def total_marks(self):
+        return self.test_m + self.literary_marks+self.sports_m
+    def display(self):
+        super().display()
+        print("Literary Marks:",self.literary_marks)
+        print("Sports Marks:",self.sports_m)
+        print("Total Marks:",self.total_marks())
+while True:
+    print("\n___Student Menu___")
+    print("1.Literary student\n2.Sports students\n3.Lit sports students\n4.Exit")
+    choice=int(input("Enter your choice:"))
+    if choice==1:
+        s=literary_student()
+    elif choice==2:
+        s=sports_student()
+    elif choice==3:
+        s=lit_sprots_student()
+    elif choice==4:
+        print("Exit")
+        break
+    else:
+        print("Invalid Choice")
+        continue
+    s.get_input()
+    print("\n___student Details______")
+    s.display()
